@@ -74,8 +74,23 @@ def get_survey_templates():
     result =  request_template(endpoint)
     return result
 
+def get_survey_pages(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages"
+    result = request_template(endpoint)
+    return result
+
+def get_survey_page_details(survey_id, page_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}"
+    result = request_template(endpoint)
+    return result
+
+def get_survey_page_questions(survey_id, page_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions"
+    result = request_template(endpoint)
+    return result
+
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 #get_surveys()
 # get_survey_details(417488166)
-get_survey_templates()
+get_survey_page_questions(417488166, 63655056)
