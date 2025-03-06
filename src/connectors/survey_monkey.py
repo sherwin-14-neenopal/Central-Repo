@@ -108,8 +108,23 @@ def get_survey_response_by_id(survey_id, response_id):
     result  = request_template(endpoint)
     return result
 
+def get_survey_response_details_by_id(survey_id, response_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details"
+    result = request_template(endpoint)
+    return result
+
 def get_survey_responses_bulk(survey_id):
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
+    result = request_template(endpoint)
+    return result
+
+def get_survey_rollups(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/rollups"
+    result = request_template(endpoint)
+    return result
+
+def get_survey_trends(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
     result = request_template(endpoint)
     return result
 
@@ -120,6 +135,11 @@ def get_collectors(survey_id):
 
 def get_collector_responses(collector_id):
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
+    result = request_template(endpoint)
+    return result
+
+def get_collector_response_by_id(collector_id, response_id):
+    endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}"
     result = request_template(endpoint)
     return result
 
@@ -135,4 +155,4 @@ def get_collector_responses_bulk(collector_id):
 ## Collector id  - 435022908
 ## Response id - 114810765595
 
-get_survey_response_by_id(417488166, 114810765595)
+get_survey_trends(417488166)
