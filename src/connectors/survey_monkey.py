@@ -3,13 +3,14 @@ import httpx
 import pandas as pd
 
 from dotenv import load_dotenv
+from typing import Optional
 
 ## Loading access token from config dir
-
-load_dotenv(os.path.join('..', 'config', '.env'))
+load_dotenv("./config/.env")
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 
-def request_template(endpoint):
+
+def request_template(endpoint:str) -> Optional[dict]:
     """Send a request to SurveyMonkey API.
 
     This function is a general template that contains token for authorization along with the 
@@ -30,12 +31,11 @@ def request_template(endpoint):
     }
     response = httpx.get(endpoint, headers=headers)
     if response.status_code == 200:
-        data = response.json()
-        return data
+        return response.json()
     else:
         print(f"Error: {response.status_code} - {response.text}")
 
-def get_surveys():
+def get_surveys() -> pd.DataFrame:
     """Send a request to retrieve a list of surveys.
 
     This function constructs a request to retrieve all surveys available in the SurveyMonkey account. 
@@ -47,10 +47,11 @@ def get_surveys():
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 
-def get_survey_info(survey_id):
+def get_survey_info(survey_id) -> pd.DataFrame:
      """Send a request to retrieve information about a specific survey.
 
     This function constructs a request to retrieve detailed information about a 
@@ -64,9 +65,10 @@ def get_survey_info(survey_id):
     """
      endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
      result = request_template(endpoint)
-     return result
+     df = pd.json_normalize(result)
+     return df
 
-def get_survey_details(survey_id):
+def get_survey_details(survey_id) -> pd.DataFrame:
     """Fetch detailed information about a specific survey.
 
     This function constructs a request to retrieve detailed information about a survey, 
@@ -80,7 +82,8 @@ def get_survey_details(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/details"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_category():
     """Send a request to retrieve a list of survey categories.
@@ -91,7 +94,8 @@ def get_survey_category():
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_categories"
     result =  request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_templates():
     """Send a request to retrieve a list of survey templates.
@@ -102,7 +106,8 @@ def get_survey_templates():
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_templates"
     result =  request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_pages(survey_id):
     """Send a request to retrieve the pages of a specific survey.
@@ -117,7 +122,8 @@ def get_survey_pages(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_page_details(survey_id, page_id):
     """Send a request to retrieve details of a specific survey page.
@@ -133,7 +139,8 @@ def get_survey_page_details(survey_id, page_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_page_questions(survey_id, page_id):
     """Send a request to retrieve questions from a specific survey page.
@@ -149,7 +156,8 @@ def get_survey_page_questions(survey_id, page_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_question_details(survey_id, page_id, question_id):
     """Send a request to retrieve details of a specific survey question.
@@ -167,7 +175,8 @@ def get_survey_question_details(survey_id, page_id, question_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_folders():
     """Send a request to retrieve a list of survey folders.
@@ -178,7 +187,8 @@ def get_survey_folders():
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_folders"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_responses(survey_id):
     """Send a request to retrieve responses for a specific survey.
@@ -193,7 +203,8 @@ def get_survey_responses(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_response_by_id(survey_id, response_id):
     """Send a  request to retrieve a specific response for a survey.
@@ -209,7 +220,8 @@ def get_survey_response_by_id(survey_id, response_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}"
     result  = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_response_details_by_id(survey_id, response_id):
     """Send a request to retrieve detailed information for a specific survey response.
@@ -225,7 +237,8 @@ def get_survey_response_details_by_id(survey_id, response_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_responses_bulk(survey_id):
     """Send a request to retrieve bulk responses for a specific survey.
@@ -240,7 +253,8 @@ def get_survey_responses_bulk(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_rollups(survey_id):
     """Send a request to retrieve rollup data for a specific survey.
@@ -255,7 +269,8 @@ def get_survey_rollups(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/rollups"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_question_rollups(survey_id, page_id, question_id):
     """Send a request to retrieve rollup data for a specific question in a survey.
@@ -272,7 +287,8 @@ def get_survey_question_rollups(survey_id, page_id, question_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/rollups"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_trends(survey_id):
     """Send a request to retrieve trend data for a specific survey.
@@ -288,7 +304,8 @@ def get_survey_trends(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_question_trends(survey_id, page_id, question_id):
     """Send a request to retrieve trend data for a specific question in a survey.
@@ -305,7 +322,8 @@ def get_survey_question_trends(survey_id, page_id, question_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/trends"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_collectors(survey_id):
     """Send a request to retrieve collectors for a specific survey.
@@ -320,7 +338,8 @@ def get_collectors(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors"
     result  = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_collector_responses(collector_id):
     """Send a request to retrieve responses for a specific collector.
@@ -335,7 +354,8 @@ def get_collector_responses(collector_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_collector_response_by_id(collector_id, response_id):
     """Send a request to retrieve a specific response for a collector.
@@ -351,7 +371,8 @@ def get_collector_response_by_id(collector_id, response_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_collector_responses_bulk(collector_id):
     """Send a request to retrieve bulk responses for a specific collector.
@@ -366,7 +387,8 @@ def get_collector_responses_bulk(collector_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_contacts():
     """Send a request to retrieve all contacts.
@@ -378,7 +400,8 @@ def get_contacts():
     """
     endpoint = f"https://api.surveymonkey.com/v3/contacts"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 def get_survey_languages(survey_id):
     """Send a request to retrieve the languages available for a specific survey.
@@ -393,7 +416,8 @@ def get_survey_languages(survey_id):
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/languages"
     result = request_template(endpoint)
-    return result
+    df = pd.json_normalize(result)
+    return df
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
@@ -401,6 +425,3 @@ def get_survey_languages(survey_id):
 ## Response id - 114810765595
 ## Page id - 63655056
 ## Question id - 235189687
-
-# get_survey_question_trends(417488166, 63655056,235189687)
-get_survey_languages(417488166)
