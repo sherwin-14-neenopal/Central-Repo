@@ -10,18 +10,18 @@ load_dotenv(os.path.join('..', 'config', '.env'))
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 
 def request_template(endpoint):
-    """Send a GET request to the specified API endpoint.
+    """Send a request to SurveyMonkey API.
 
-    This function constructs a request to the specified API endpoint
-    using the provided Bearer token for authorization. It prints the
-    response data if the request is successful, or an error message
-    if the request fails.
+    This function is a general template that contains token for authorization along with the 
+    logic for calling different API endpoints.This template is referenced in all the functions 
+    below to handle the API request and response. The function returns the data if the 
+    request is successful, or an error message if the request fails.
 
     Args:
         endpoint (str): The API endpoint to which the request is sent.
 
     Returns:
-        None: The function prints the response data if the request is
+        None: The function returns the response data if the request is
         successful (status code 200), otherwise it prints an error message.
     """
     headers = {
@@ -30,28 +30,47 @@ def request_template(endpoint):
     }
     response = httpx.get(endpoint, headers=headers)
     if response.status_code == 200:
-        print(response.json())
+        data = response.json()
+        return data
     else:
         print(f"Error: {response.status_code} - {response.text}")
 
 def get_surveys():
+    """Send a GET request to retrieve a list of surveys.
+
+    This function constructs a request to retrieve all surveys available in the SurveyMonkey account. 
+    It returns the result of the request, which contains the survey datacif the request is successful,
+    or an error message if the request fails.
+
+    Returns:
+
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
     result = request_template(endpoint)
     return result
 
 
 def get_survey_info(survey_id):
-    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
-    result = request_template(endpoint)
-    return result
+     """Send a GET request to retrieve information about a specific survey.
+
+    This function constructs a request to retrieve detailed information about a 
+    survey identified by the given survey ID from your SurveyMonkey account.
+
+    Args:
+        survey_id (int or str): The ID of the survey for which information is requested.
+
+    Returns:
+        dict: A dictionary containing detailed survey information
+    """
+     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
+     result = request_template(endpoint)
+     return result
 
 def get_survey_details(survey_id):
-    """Fetch detailed information about a specific survey from the SurveyMonkey API.
+    """Fetch detailed information about a specific survey.
 
-    This function constructs a request to the SurveyMonkey API to retrieve
-    detailed information about a survey, including its pages and questions.
-    It calls the `request_template` function to handle the API request and
-    response.
+    This function constructs a request to retrieve detailed information about a survey, 
+    including its pages and questions from your SurveyMonkey account.
 
     Args:
         survey_id (str): The ID of the survey for which to fetch details.
@@ -64,105 +83,317 @@ def get_survey_details(survey_id):
     return result
 
 def get_survey_category():
+    """Send a GET request to retrieve a list of survey categories.
+
+    This function constructs a request retrieve all available survey categories from SurveyMonkey.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/survey_categories"
     result =  request_template(endpoint)
     return result
 
 def get_survey_templates():
+    """Send a GET request to retrieve a list of survey templates.
+
+    This function constructs a request retrieve all available survey templates in the SurveyMonkey.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/survey_templates"
     result =  request_template(endpoint)
     return result
 
 def get_survey_pages(survey_id):
+    """Send a GET request to retrieve the pages of a specific survey.
+
+    This function constructs a request to retrieve all pages associated with the survey identified 
+    by the given survey ID.
+
+    Args:
+        survey_id (int or str): The ID of the survey for which pages are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages"
     result = request_template(endpoint)
     return result
 
 def get_survey_page_details(survey_id, page_id):
+    """Send a GET request to retrieve details of a specific survey page.
+
+    This function constructs a request to retrieve detailed information about a page 
+    associated with the survey identified by the given survey ID and page ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey to which the page belongs.
+        page_id (int or str): The ID of the page for which details are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}"
     result = request_template(endpoint)
     return result
 
 def get_survey_page_questions(survey_id, page_id):
+    """Send a GET request to retrieve questions from a specific survey page.
+
+    This function constructs a request to retrieve all questions associated with the page 
+    identified by the given survey ID and page ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey to which the page belongs.
+        page_id (int or str): The ID of the page for which questions are requested.
+        
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions"
     result = request_template(endpoint)
     return result
 
 def get_survey_question_details(survey_id, page_id, question_id):
+    """Send a GET request to retrieve details of a specific survey question.
+
+    This function constructs a request to retrieve detailed information about a 
+    question associated with the page identified by the given survey ID, page ID, 
+    and question ID.
+
+    Args:
+        survey_id (int or str): The ID of the survey to which the question belongs.
+        page_id (int or str): The ID of the page that contains the question.
+        question_id (int or str): The ID of the question for which details are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}"
     result = request_template(endpoint)
     return result
 
 def get_survey_folders():
+    """Send a GET request to retrieve a list of survey folders.
+
+    This function constructs a request retrieve all available survey folders from SurveyMonkey.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/survey_folders"
     result = request_template(endpoint)
     return result
 
 def get_survey_responses(survey_id):
+    """Send a GET request to retrieve responses for a specific survey.
+
+    This function constructs a request to retrieve all responses associated with the 
+    survey identified by the given survey ID.
+
+    Args:
+        survey_id (int or str): The ID of the survey for which responses are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses"
     result = request_template(endpoint)
     return result
 
 def get_survey_response_by_id(survey_id, response_id):
+    """Send a GET request to retrieve a specific response for a survey.
+
+    This function constructs a request to retrieve a single response associated with the 
+    survey identified by the given survey ID and response ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which the response is requested.
+        response_id (int or str): The ID of the specific response to retrieve.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}"
     result  = request_template(endpoint)
     return result
 
 def get_survey_response_details_by_id(survey_id, response_id):
+    """Send a GET request to retrieve detailed information for a specific survey response.
+
+    This function constructs a request to retrieve detailed information associated with a 
+    specific response identified by the given survey ID and response ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which the response details are requested.
+        response_id (int or str): The ID of the specific response for which details are to be retrieved.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details"
     result = request_template(endpoint)
     return result
 
 def get_survey_responses_bulk(survey_id):
+    """Send a GET request to retrieve bulk responses for a specific survey.
+
+    This function constructs a request to retrieve all responses associated with the survey 
+    identified by the given survey ID in bulk. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which bulk responses are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
     result = request_template(endpoint)
     return result
 
 def get_survey_rollups(survey_id):
+    """Send a GET request to retrieve rollup data for a specific survey.
+
+    This function constructs a request to retrieve rollup data associated with the survey 
+    identified by the given survey ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which rollup data is requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/rollups"
     result = request_template(endpoint)
     return result
 
 def get_survey_question_rollups(survey_id, page_id, question_id):
+    """Send a GET request to retrieve rollup data for a specific question in a survey.
+
+    This function constructs a request to retrieve rollup data associated with a specific 
+    question identified by the given survey ID, page ID, and question ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey containing the question.
+        page_id (int or str): The ID of the page containing the question.
+        question_id (int or str): The ID of the specific question for which rollup data is requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/rollups"
     result = request_template(endpoint)
     return result
 
 def get_survey_trends(survey_id):
+    """Send a GET request to retrieve trend data for a specific survey.
+
+    This function constructs a request retrieve trend data associated with the survey identified 
+    by
+    the given survey ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which trend data is requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
     result = request_template(endpoint)
     return result
 
 def get_survey_question_trends(survey_id, page_id, question_id):
+    """Send a GET request to retrieve trend data for a specific question in a survey.
+
+    This function constructs a request to retrieve trend data associated with a specific 
+    question identified by the given survey ID, page ID, and question ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey containing the question.
+        page_id (int or str): The ID of the page containing the question.
+        question_id (int or str): The ID of the specific question for which trend data is requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/trends"
     result = request_template(endpoint)
     return result
 
 def get_collectors(survey_id):
+    """Send a GET request to retrieve collectors for a specific survey.
+
+    This function constructs a request to retrieve all collectors associated with the survey 
+    identified by the given survey ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which collectors are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors"
     result  = request_template(endpoint)
     return result
 
 def get_collector_responses(collector_id):
+    """Send a GET request to retrieve responses for a specific collector.
+
+    This function constructs a request retrieve all responses associated with the collector 
+    identified by the given collector ID.
+
+    Args:
+        collector_id (int or str): The ID of the collector for which responses are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
     result = request_template(endpoint)
     return result
 
 def get_collector_response_by_id(collector_id, response_id):
+    """Send a GET request to retrieve a specific response for a collector.
+
+    This function constructs a request to retrieve a response associated with the collector 
+    identified by the given collector ID and response ID. 
+
+    Args:
+        collector_id (int or str): The ID of the collector for which the response is requested.
+        response_id (int or str): The ID of the specific response to retrieve.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}"
     result = request_template(endpoint)
     return result
 
 def get_collector_responses_bulk(collector_id):
+    """Send a GET request to retrieve bulk responses for a specific collector.
+
+    This function constructs a request to retrieve all responses associated with the collector 
+    identified by the given collector ID in bulk. 
+
+    Args:
+        collector_id (int or str): The ID of the collector for which bulk responses are requested.
+
+    Returns:
+    """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk"
     result = request_template(endpoint)
     return result
 
-def get_contact_lists():
-    endpoint = f"https://api.surveymonkey.com/v3/contact_lists"
+def get_contacts():
+    """Send a GET request to retrieve all contacts.
+
+    This function constructs a request to retrieve a list of all contacts associated with the 
+    account. 
+
+    Returns:
+    """
+    endpoint = f"https://api.surveymonkey.com/v3/contacts"
     result = request_template(endpoint)
     return result
 
+def get_survey_languages(survey_id):
+    """Send a GET request to retrieve the languages available for a specific survey.
+
+    This function constructs a request to retrieve a list of languages associated with the survey 
+    identified by the given survey ID. 
+
+    Args:
+        survey_id (int or str): The ID of the survey for which languages are requested.
+
+    Returns:
+    """
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/languages"
+    result = request_template(endpoint)
+    return result
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
@@ -172,4 +403,4 @@ def get_contact_lists():
 ## Question id - 235189687
 
 # get_survey_question_trends(417488166, 63655056,235189687)
-get_contact_lists()
+get_survey_languages(417488166)
