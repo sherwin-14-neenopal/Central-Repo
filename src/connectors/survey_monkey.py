@@ -123,8 +123,18 @@ def get_survey_rollups(survey_id):
     result = request_template(endpoint)
     return result
 
+def get_survey_question_rollups(survey_id, page_id, question_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/rollups"
+    result = request_template(endpoint)
+    return result
+
 def get_survey_trends(survey_id):
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
+    result = request_template(endpoint)
+    return result
+
+def get_survey_question_trends(survey_id, page_id, question_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/trends"
     result = request_template(endpoint)
     return result
 
@@ -148,11 +158,18 @@ def get_collector_responses_bulk(collector_id):
     result = request_template(endpoint)
     return result
 
+def get_contact_lists():
+    endpoint = f"https://api.surveymonkey.com/v3/contact_lists"
+    result = request_template(endpoint)
+    return result
 
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
 ## Collector id  - 435022908
 ## Response id - 114810765595
+## Page id - 63655056
+## Question id - 235189687
 
-get_survey_trends(417488166)
+# get_survey_question_trends(417488166, 63655056,235189687)
+get_contact_lists()
