@@ -19,7 +19,6 @@ def request_template(endpoint):
 
     Args:
         endpoint (str): The API endpoint to which the request is sent.
-        access_token (str): The Bearer token used for authorization.
 
     Returns:
         None: The function prints the response data if the request is
@@ -99,16 +98,41 @@ def get_survey_folders():
     result = request_template(endpoint)
     return result
 
-def get_survey_responses():
-    endpoint = f"https://api.surveymonkey.com/v3/surveys//responses"
+def get_survey_responses(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses"
     result = request_template(endpoint)
     return result
-    
 
+def get_survey_response_by_id(survey_id, response_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}"
+    result  = request_template(endpoint)
+    return result
+
+def get_survey_responses_bulk(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
+    result = request_template(endpoint)
+    return result
+
+def get_collectors(survey_id):
+    endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors"
+    result  = request_template(endpoint)
+    return result
+
+def get_collector_responses(collector_id):
+    endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
+    result = request_template(endpoint)
+    return result
+
+def get_collector_responses_bulk(collector_id):
+    endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk"
+    result = request_template(endpoint)
+    return result
 
 
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
-#get_surveys()
-# get_survey_details(417488166)
-get_survey_responses()
+## Survey id - 417488166
+## Collector id  - 435022908
+## Response id - 114810765595
+
+get_survey_response_by_id(417488166, 114810765595)
