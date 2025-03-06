@@ -36,7 +36,7 @@ def request_template(endpoint):
         print(f"Error: {response.status_code} - {response.text}")
 
 def get_surveys():
-    """Send a GET request to retrieve a list of surveys.
+    """Send a request to retrieve a list of surveys.
 
     This function constructs a request to retrieve all surveys available in the SurveyMonkey account. 
     It returns the result of the request, which contains the survey datacif the request is successful,
@@ -51,7 +51,7 @@ def get_surveys():
 
 
 def get_survey_info(survey_id):
-     """Send a GET request to retrieve information about a specific survey.
+     """Send a request to retrieve information about a specific survey.
 
     This function constructs a request to retrieve detailed information about a 
     survey identified by the given survey ID from your SurveyMonkey account.
@@ -83,7 +83,7 @@ def get_survey_details(survey_id):
     return result
 
 def get_survey_category():
-    """Send a GET request to retrieve a list of survey categories.
+    """Send a request to retrieve a list of survey categories.
 
     This function constructs a request retrieve all available survey categories from SurveyMonkey.
 
@@ -94,7 +94,7 @@ def get_survey_category():
     return result
 
 def get_survey_templates():
-    """Send a GET request to retrieve a list of survey templates.
+    """Send a request to retrieve a list of survey templates.
 
     This function constructs a request retrieve all available survey templates in the SurveyMonkey.
 
@@ -105,7 +105,7 @@ def get_survey_templates():
     return result
 
 def get_survey_pages(survey_id):
-    """Send a GET request to retrieve the pages of a specific survey.
+    """Send a request to retrieve the pages of a specific survey.
 
     This function constructs a request to retrieve all pages associated with the survey identified 
     by the given survey ID.
@@ -120,7 +120,7 @@ def get_survey_pages(survey_id):
     return result
 
 def get_survey_page_details(survey_id, page_id):
-    """Send a GET request to retrieve details of a specific survey page.
+    """Send a request to retrieve details of a specific survey page.
 
     This function constructs a request to retrieve detailed information about a page 
     associated with the survey identified by the given survey ID and page ID. 
@@ -136,7 +136,7 @@ def get_survey_page_details(survey_id, page_id):
     return result
 
 def get_survey_page_questions(survey_id, page_id):
-    """Send a GET request to retrieve questions from a specific survey page.
+    """Send a request to retrieve questions from a specific survey page.
 
     This function constructs a request to retrieve all questions associated with the page 
     identified by the given survey ID and page ID. 
@@ -152,7 +152,7 @@ def get_survey_page_questions(survey_id, page_id):
     return result
 
 def get_survey_question_details(survey_id, page_id, question_id):
-    """Send a GET request to retrieve details of a specific survey question.
+    """Send a request to retrieve details of a specific survey question.
 
     This function constructs a request to retrieve detailed information about a 
     question associated with the page identified by the given survey ID, page ID, 
@@ -170,7 +170,7 @@ def get_survey_question_details(survey_id, page_id, question_id):
     return result
 
 def get_survey_folders():
-    """Send a GET request to retrieve a list of survey folders.
+    """Send a request to retrieve a list of survey folders.
 
     This function constructs a request retrieve all available survey folders from SurveyMonkey.
 
@@ -181,7 +181,7 @@ def get_survey_folders():
     return result
 
 def get_survey_responses(survey_id):
-    """Send a GET request to retrieve responses for a specific survey.
+    """Send a request to retrieve responses for a specific survey.
 
     This function constructs a request to retrieve all responses associated with the 
     survey identified by the given survey ID.
@@ -196,7 +196,7 @@ def get_survey_responses(survey_id):
     return result
 
 def get_survey_response_by_id(survey_id, response_id):
-    """Send a GET request to retrieve a specific response for a survey.
+    """Send a  request to retrieve a specific response for a survey.
 
     This function constructs a request to retrieve a single response associated with the 
     survey identified by the given survey ID and response ID. 
@@ -212,7 +212,7 @@ def get_survey_response_by_id(survey_id, response_id):
     return result
 
 def get_survey_response_details_by_id(survey_id, response_id):
-    """Send a GET request to retrieve detailed information for a specific survey response.
+    """Send a request to retrieve detailed information for a specific survey response.
 
     This function constructs a request to retrieve detailed information associated with a 
     specific response identified by the given survey ID and response ID. 
@@ -228,7 +228,7 @@ def get_survey_response_details_by_id(survey_id, response_id):
     return result
 
 def get_survey_responses_bulk(survey_id):
-    """Send a GET request to retrieve bulk responses for a specific survey.
+    """Send a request to retrieve bulk responses for a specific survey.
 
     This function constructs a request to retrieve all responses associated with the survey 
     identified by the given survey ID in bulk. 
@@ -243,7 +243,7 @@ def get_survey_responses_bulk(survey_id):
     return result
 
 def get_survey_rollups(survey_id):
-    """Send a GET request to retrieve rollup data for a specific survey.
+    """Send a request to retrieve rollup data for a specific survey.
 
     This function constructs a request to retrieve rollup data associated with the survey 
     identified by the given survey ID. 
@@ -258,7 +258,7 @@ def get_survey_rollups(survey_id):
     return result
 
 def get_survey_question_rollups(survey_id, page_id, question_id):
-    """Send a GET request to retrieve rollup data for a specific question in a survey.
+    """Send a request to retrieve rollup data for a specific question in a survey.
 
     This function constructs a request to retrieve rollup data associated with a specific 
     question identified by the given survey ID, page ID, and question ID. 
@@ -275,7 +275,7 @@ def get_survey_question_rollups(survey_id, page_id, question_id):
     return result
 
 def get_survey_trends(survey_id):
-    """Send a GET request to retrieve trend data for a specific survey.
+    """Send a request to retrieve trend data for a specific survey.
 
     This function constructs a request retrieve trend data associated with the survey identified 
     by
@@ -291,7 +291,7 @@ def get_survey_trends(survey_id):
     return result
 
 def get_survey_question_trends(survey_id, page_id, question_id):
-    """Send a GET request to retrieve trend data for a specific question in a survey.
+    """Send a request to retrieve trend data for a specific question in a survey.
 
     This function constructs a request to retrieve trend data associated with a specific 
     question identified by the given survey ID, page ID, and question ID. 
@@ -308,7 +308,7 @@ def get_survey_question_trends(survey_id, page_id, question_id):
     return result
 
 def get_collectors(survey_id):
-    """Send a GET request to retrieve collectors for a specific survey.
+    """Send a request to retrieve collectors for a specific survey.
 
     This function constructs a request to retrieve all collectors associated with the survey 
     identified by the given survey ID. 
@@ -323,7 +323,7 @@ def get_collectors(survey_id):
     return result
 
 def get_collector_responses(collector_id):
-    """Send a GET request to retrieve responses for a specific collector.
+    """Send a request to retrieve responses for a specific collector.
 
     This function constructs a request retrieve all responses associated with the collector 
     identified by the given collector ID.
@@ -338,7 +338,7 @@ def get_collector_responses(collector_id):
     return result
 
 def get_collector_response_by_id(collector_id, response_id):
-    """Send a GET request to retrieve a specific response for a collector.
+    """Send a request to retrieve a specific response for a collector.
 
     This function constructs a request to retrieve a response associated with the collector 
     identified by the given collector ID and response ID. 
@@ -354,7 +354,7 @@ def get_collector_response_by_id(collector_id, response_id):
     return result
 
 def get_collector_responses_bulk(collector_id):
-    """Send a GET request to retrieve bulk responses for a specific collector.
+    """Send a request to retrieve bulk responses for a specific collector.
 
     This function constructs a request to retrieve all responses associated with the collector 
     identified by the given collector ID in bulk. 
@@ -369,7 +369,7 @@ def get_collector_responses_bulk(collector_id):
     return result
 
 def get_contacts():
-    """Send a GET request to retrieve all contacts.
+    """Send a request to retrieve all contacts.
 
     This function constructs a request to retrieve a list of all contacts associated with the 
     account. 
@@ -381,7 +381,7 @@ def get_contacts():
     return result
 
 def get_survey_languages(survey_id):
-    """Send a GET request to retrieve the languages available for a specific survey.
+    """Send a request to retrieve the languages available for a specific survey.
 
     This function constructs a request to retrieve a list of languages associated with the survey 
     identified by the given survey ID. 
