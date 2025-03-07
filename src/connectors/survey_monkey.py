@@ -78,7 +78,7 @@ def get_survey_details(survey_id) -> pd.DataFrame:
         survey_id (str): The ID of the survey for which to fetch details.
 
     Returns:
-        pd.DataFrame: A DataFrame containing detailed survey information
+        pd.DataFrame: A DataFrame containing detailed survey information.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/details"
     result = request_template(endpoint)
