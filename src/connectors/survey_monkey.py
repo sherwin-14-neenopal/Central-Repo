@@ -4,6 +4,7 @@ import pandas as pd
 
 from dotenv import load_dotenv
 from typing import Optional
+from common.postgres_connector import create_postgres_database, create_postgres_connection, create_postgres_table_from_dataframe
 
 ## Loading access token from config dir
 load_dotenv("./config/.env")
@@ -440,6 +441,17 @@ def get_survey_languages(survey_id) -> pd.DataFrame:
     result = request_template(endpoint)
     df = pd.json_normalize(result)
     return df
+
+def main(db_type, db_name, user, password, host, port, survey_id, dataframes):
+    if db_type == 'postgres':
+        create_postgres_database(user, password, host, port, db_name)
+        conn = create_postgres_connection(user, password, host, port, db_name)
+        if conn:
+            for table_name, df in dataframes.items():
+                create_postgres_table_from_dataframe(conn, df, table_name)
+            conn.close()
+    else:
+        print("Unsupported database type.")
 
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
