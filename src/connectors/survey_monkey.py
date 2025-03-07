@@ -42,6 +42,7 @@ def get_surveys() -> pd.DataFrame:
     or an error message if the request fails.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the survey data retrieved.
 
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
@@ -60,7 +61,7 @@ def get_survey_info(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which information is requested.
 
     Returns:
-        dict: A dictionary containing detailed survey information
+         pd.DataFrame: A DataFrame containing the survey information retrieved.
     """
      endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
      result = request_template(endpoint)
@@ -90,6 +91,7 @@ def get_survey_category() -> pd.DataFrame:
     This function constructs a request retrieve all available survey categories from SurveyMonkey.
 
     Returns:
+       pd.DataFrame: A DataFrame containing the survey categories retrieved.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_categories"
     result =  request_template(endpoint)
@@ -102,6 +104,7 @@ def get_survey_templates() -> pd.DataFrame:
     This function constructs a request retrieve all available survey templates in the SurveyMonkey.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the survey templates retrieved.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_templates"
     result =  request_template(endpoint)
@@ -118,6 +121,7 @@ def get_survey_pages(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which pages are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing all the pages of a survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages"
     result = request_template(endpoint)
@@ -135,6 +139,7 @@ def get_survey_page_details(survey_id, page_id) -> pd.DataFrame:
         page_id (int or str): The ID of the page for which details are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing detailed infomation of a page.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}"
     result = request_template(endpoint)
@@ -152,6 +157,7 @@ def get_survey_page_questions(survey_id, page_id) -> pd.DataFrame:
         page_id (int or str): The ID of the page for which questions are requested.
         
     Returns:
+        pd.DataFrame: A DataFrame containing all questions from the specified page.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions"
     result = request_template(endpoint)
@@ -171,6 +177,7 @@ def get_survey_question_details(survey_id, page_id, question_id) -> pd.DataFrame
         question_id (int or str): The ID of the question for which details are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the details of the specified question.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}"
     result = request_template(endpoint)
@@ -183,6 +190,7 @@ def get_survey_folders() -> pd.DataFrame:
     This function constructs a request retrieve all available survey folders from SurveyMonkey.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the survey folders.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_folders"
     result = request_template(endpoint)
@@ -199,6 +207,7 @@ def get_survey_responses(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which responses are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the survey responses for a survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses"
     result = request_template(endpoint)
@@ -216,6 +225,7 @@ def get_survey_response_by_id(survey_id, response_id) -> pd.DataFrame:
         response_id (int or str): The ID of the specific response to retrieve.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the specific survey response for a survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}"
     result  = request_template(endpoint)
@@ -233,6 +243,7 @@ def get_survey_response_details_by_id(survey_id, response_id) -> pd.DataFrame:
         response_id (int or str): The ID of the specific response for which details are to be retrieved.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the detailed information of the specific survey response.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details"
     result = request_template(endpoint)
@@ -249,6 +260,7 @@ def get_survey_responses_bulk(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which bulk responses are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the bulk responses for the specified survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
     result = request_template(endpoint)
@@ -265,6 +277,7 @@ def get_survey_rollups(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which rollup data is requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the rollup data for the specified survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/rollups"
     result = request_template(endpoint)
@@ -283,6 +296,8 @@ def get_survey_question_rollups(survey_id, page_id, question_id) -> pd.DataFrame
         question_id (int or str): The ID of the specific question for which rollup data is requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the rollup data for the specified question in the survey.
+
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/rollups"
     result = request_template(endpoint)
@@ -300,6 +315,7 @@ def get_survey_trends(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which trend data is requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the trend data for the specified survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
     result = request_template(endpoint)
@@ -318,6 +334,7 @@ def get_survey_question_trends(survey_id, page_id, question_id) -> pd.DataFrame:
         question_id (int or str): The ID of the specific question for which trend data is requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the trend data for the specified question in the survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/trends"
     result = request_template(endpoint)
@@ -334,6 +351,7 @@ def get_collectors(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which collectors are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the collectors for the specified survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors"
     result  = request_template(endpoint)
@@ -350,6 +368,7 @@ def get_collector_responses(collector_id) -> pd.DataFrame:
         collector_id (int or str): The ID of the collector for which responses are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the responses for the specified collector.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
     result = request_template(endpoint)
@@ -367,6 +386,7 @@ def get_collector_response_by_id(collector_id, response_id) -> pd.DataFrame:
         response_id (int or str): The ID of the specific response to retrieve.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the specific response for the specified collector.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}"
     result = request_template(endpoint)
@@ -383,6 +403,7 @@ def get_collector_responses_bulk(collector_id) -> pd.DataFrame:
         collector_id (int or str): The ID of the collector for which bulk responses are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the bulk responses for the specified collector.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk"
     result = request_template(endpoint)
@@ -396,6 +417,7 @@ def get_contacts() -> pd.DataFrame:
     account. 
 
     Returns:
+        pd.DataFrame: A DataFrame containing the list of contacts associated with the account.
     """
     endpoint = f"https://api.surveymonkey.com/v3/contacts"
     result = request_template(endpoint)
@@ -412,6 +434,7 @@ def get_survey_languages(survey_id) -> pd.DataFrame:
         survey_id (int or str): The ID of the survey for which languages are requested.
 
     Returns:
+        pd.DataFrame: A DataFrame containing the languages available for the specified survey.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/languages"
     result = request_template(endpoint)
