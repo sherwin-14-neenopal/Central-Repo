@@ -9,7 +9,6 @@ from typing import Optional
 load_dotenv("./config/.env")
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 
-
 def request_template(endpoint:str) -> Optional[dict]:
     """Send a request to SurveyMonkey API.
 
@@ -85,7 +84,7 @@ def get_survey_details(survey_id) -> pd.DataFrame:
     df = pd.json_normalize(result)
     return df
 
-def get_survey_category():
+def get_survey_category() -> pd.DataFrame:
     """Send a request to retrieve a list of survey categories.
 
     This function constructs a request retrieve all available survey categories from SurveyMonkey.
@@ -97,7 +96,7 @@ def get_survey_category():
     df = pd.json_normalize(result)
     return df
 
-def get_survey_templates():
+def get_survey_templates() -> pd.DataFrame:
     """Send a request to retrieve a list of survey templates.
 
     This function constructs a request retrieve all available survey templates in the SurveyMonkey.
@@ -109,7 +108,7 @@ def get_survey_templates():
     df = pd.json_normalize(result)
     return df
 
-def get_survey_pages(survey_id):
+def get_survey_pages(survey_id) -> pd.DataFrame:
     """Send a request to retrieve the pages of a specific survey.
 
     This function constructs a request to retrieve all pages associated with the survey identified 
@@ -125,7 +124,7 @@ def get_survey_pages(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_page_details(survey_id, page_id):
+def get_survey_page_details(survey_id, page_id) -> pd.DataFrame:
     """Send a request to retrieve details of a specific survey page.
 
     This function constructs a request to retrieve detailed information about a page 
@@ -142,7 +141,7 @@ def get_survey_page_details(survey_id, page_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_page_questions(survey_id, page_id):
+def get_survey_page_questions(survey_id, page_id) -> pd.DataFrame:
     """Send a request to retrieve questions from a specific survey page.
 
     This function constructs a request to retrieve all questions associated with the page 
@@ -159,7 +158,7 @@ def get_survey_page_questions(survey_id, page_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_question_details(survey_id, page_id, question_id):
+def get_survey_question_details(survey_id, page_id, question_id) -> pd.DataFrame:
     """Send a request to retrieve details of a specific survey question.
 
     This function constructs a request to retrieve detailed information about a 
@@ -178,7 +177,7 @@ def get_survey_question_details(survey_id, page_id, question_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_folders():
+def get_survey_folders() -> pd.DataFrame:
     """Send a request to retrieve a list of survey folders.
 
     This function constructs a request retrieve all available survey folders from SurveyMonkey.
@@ -190,7 +189,7 @@ def get_survey_folders():
     df = pd.json_normalize(result)
     return df
 
-def get_survey_responses(survey_id):
+def get_survey_responses(survey_id) -> pd.DataFrame:
     """Send a request to retrieve responses for a specific survey.
 
     This function constructs a request to retrieve all responses associated with the 
@@ -206,7 +205,7 @@ def get_survey_responses(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_response_by_id(survey_id, response_id):
+def get_survey_response_by_id(survey_id, response_id) -> pd.DataFrame:
     """Send a  request to retrieve a specific response for a survey.
 
     This function constructs a request to retrieve a single response associated with the 
@@ -223,7 +222,7 @@ def get_survey_response_by_id(survey_id, response_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_response_details_by_id(survey_id, response_id):
+def get_survey_response_details_by_id(survey_id, response_id) -> pd.DataFrame:
     """Send a request to retrieve detailed information for a specific survey response.
 
     This function constructs a request to retrieve detailed information associated with a 
@@ -240,7 +239,7 @@ def get_survey_response_details_by_id(survey_id, response_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_responses_bulk(survey_id):
+def get_survey_responses_bulk(survey_id) -> pd.DataFrame:
     """Send a request to retrieve bulk responses for a specific survey.
 
     This function constructs a request to retrieve all responses associated with the survey 
@@ -256,7 +255,7 @@ def get_survey_responses_bulk(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_rollups(survey_id):
+def get_survey_rollups(survey_id) -> pd.DataFrame:
     """Send a request to retrieve rollup data for a specific survey.
 
     This function constructs a request to retrieve rollup data associated with the survey 
@@ -272,7 +271,7 @@ def get_survey_rollups(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_question_rollups(survey_id, page_id, question_id):
+def get_survey_question_rollups(survey_id, page_id, question_id) -> pd.DataFrame:
     """Send a request to retrieve rollup data for a specific question in a survey.
 
     This function constructs a request to retrieve rollup data associated with a specific 
@@ -290,7 +289,7 @@ def get_survey_question_rollups(survey_id, page_id, question_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_trends(survey_id):
+def get_survey_trends(survey_id) -> pd.DataFrame:
     """Send a request to retrieve trend data for a specific survey.
 
     This function constructs a request retrieve trend data associated with the survey identified 
@@ -307,7 +306,7 @@ def get_survey_trends(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_survey_question_trends(survey_id, page_id, question_id):
+def get_survey_question_trends(survey_id, page_id, question_id) -> pd.DataFrame:
     """Send a request to retrieve trend data for a specific question in a survey.
 
     This function constructs a request to retrieve trend data associated with a specific 
@@ -325,7 +324,7 @@ def get_survey_question_trends(survey_id, page_id, question_id):
     df = pd.json_normalize(result)
     return df
 
-def get_collectors(survey_id):
+def get_collectors(survey_id) -> pd.DataFrame:
     """Send a request to retrieve collectors for a specific survey.
 
     This function constructs a request to retrieve all collectors associated with the survey 
@@ -341,7 +340,7 @@ def get_collectors(survey_id):
     df = pd.json_normalize(result)
     return df
 
-def get_collector_responses(collector_id):
+def get_collector_responses(collector_id) -> pd.DataFrame:
     """Send a request to retrieve responses for a specific collector.
 
     This function constructs a request retrieve all responses associated with the collector 
@@ -357,7 +356,7 @@ def get_collector_responses(collector_id):
     df = pd.json_normalize(result)
     return df
 
-def get_collector_response_by_id(collector_id, response_id):
+def get_collector_response_by_id(collector_id, response_id) -> pd.DataFrame:
     """Send a request to retrieve a specific response for a collector.
 
     This function constructs a request to retrieve a response associated with the collector 
@@ -374,7 +373,7 @@ def get_collector_response_by_id(collector_id, response_id):
     df = pd.json_normalize(result)
     return df
 
-def get_collector_responses_bulk(collector_id):
+def get_collector_responses_bulk(collector_id) -> pd.DataFrame:
     """Send a request to retrieve bulk responses for a specific collector.
 
     This function constructs a request to retrieve all responses associated with the collector 
@@ -390,7 +389,7 @@ def get_collector_responses_bulk(collector_id):
     df = pd.json_normalize(result)
     return df
 
-def get_contacts():
+def get_contacts() -> pd.DataFrame:
     """Send a request to retrieve all contacts.
 
     This function constructs a request to retrieve a list of all contacts associated with the 
@@ -403,7 +402,7 @@ def get_contacts():
     df = pd.json_normalize(result)
     return df
 
-def get_survey_languages(survey_id):
+def get_survey_languages(survey_id) -> pd.DataFrame:
     """Send a request to retrieve the languages available for a specific survey.
 
     This function constructs a request to retrieve a list of languages associated with the survey 
@@ -419,9 +418,11 @@ def get_survey_languages(survey_id):
     df = pd.json_normalize(result)
     return df
 
+
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
 ## Collector id  - 435022908
 ## Response id - 114810765595
 ## Page id - 63655056
 ## Question id - 235189687
+print(get_contacts())
