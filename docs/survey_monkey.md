@@ -47,3 +47,5 @@
 
    4. **Save Your Changes**: After selecting the desired scopes, make sure to click on update scopes button. Your access token will now have the permissions associated with the scopes you selected.
 
+**You can now make requests to the various endpoints and retrieve data related to surveys, responses, and collectors etc.**
+
