@@ -12,10 +12,10 @@ ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 def request_template(endpoint: int) -> Optional[dict]:
     """Send a request to SurveyMonkey API.
 
-    This function is a general template that contains token for authorization along with the 
-    logic for calling different API endpoints.This template is referenced in all the functions 
-    below to handle the API request and response. The function returns the data if the 
-    request is successful, or an error message if the request fails.
+    This function serves as a general template that requires an access token for authorization 
+    and an endpoint to make the API request. It is utilized by all the functions below to manage 
+    the API request and response. The function returns the data if the request is successful, or 
+    an error message if the request fails.
 
     Args:
         endpoint (int): The API endpoint to which the request is sent.
