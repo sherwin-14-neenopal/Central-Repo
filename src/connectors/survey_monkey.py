@@ -34,12 +34,35 @@ def request_template(endpoint: int) -> Optional[dict]:
     else:
         print(f"Error: {response.status_code} - {response.text}")
 
+def get_user() -> Optional[dict]:
+    """Send a request to retrieve the user information.
+
+    This function constructs a request to retrieve the details of the authenticated user.
+
+    Returns:
+        A dict containing the user data.
+    """
+    endpoint = f"https://api.surveymonkey.com/v3/users/me"
+    result = request_template(endpoint)
+    return result
+
+def get_groups() -> Optional[dict]:
+    """Send a request to retrieve a list of groups.
+
+    This function constructs a request to retrieve all groups available in the SurveyMonkey account. 
+
+    Returns:
+        A dict containing the group data.
+    """
+    endpoint = f"https://api.surveymonkey.com/v3/groups"
+    result = request_template(endpoint)
+    return result
+
+
 def get_surveys() -> Optional[dict]:
     """Send a request to retrieve a list of surveys.
 
     This function constructs a request to retrieve all surveys available in the SurveyMonkey account. 
-    It returns the result of the request, which contains the survey datacif the request is successful,
-    or an error message if the request fails.
 
     Returns:
         A dict containing the survey data.
@@ -53,8 +76,8 @@ def get_surveys() -> Optional[dict]:
 def get_survey_info(survey_id: int) -> Optional[dict]:
      """Send a request to retrieve information about a specific survey.
 
-    This function constructs a request to retrieve detailed information about a 
-    survey identified by the given survey ID from your SurveyMonkey account.
+    This function constructs a request to retrieve detailed information about a survey identified by 
+    the given survey ID from your SurveyMonkey account.
 
     Args:
         survey_id (int): The ID of the survey for which information is requested.
@@ -69,8 +92,8 @@ def get_survey_info(survey_id: int) -> Optional[dict]:
 def get_survey_details(survey_id: int) -> Optional[dict]:
     """Fetch detailed information about a specific survey.
 
-    This function constructs a request to retrieve detailed information about a survey, 
-    including its pages and questions from your SurveyMonkey account.
+    This function constructs a request to retrieve detailed information about a survey, including its 
+    pages and questions from your SurveyMonkey account.
 
     Args:
         survey_id (int): The ID of the survey for which to fetch details.
@@ -424,4 +447,4 @@ def get_survey_languages(survey_id: int) -> Optional[dict]:
 ## Response id - 114810765595
 ## Page id - 63655056
 ## Question id - 235189687
-print(get_survey_question_details(417488166, 63655056, 235189687).iloc[:,:5])
+print(get_workgroups())
