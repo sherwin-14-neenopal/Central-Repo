@@ -42,7 +42,7 @@ def get_surveys() -> Optional[dict]:
     or an error message if the request fails.
 
     Returns:
-        A dict containing the survey data retrieved.
+        A dict containing the survey data.
 
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
@@ -60,7 +60,7 @@ def get_survey_info(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which information is requested.
 
     Returns:
-         A dict containing the survey information retrieved.
+         A dict containing the survey information.
     """
      endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
      result = request_template(endpoint)
@@ -88,7 +88,7 @@ def get_survey_category() -> Optional[dict]:
     This function constructs a request retrieve all available survey categories from SurveyMonkey.
 
     Returns:
-       A dict containing the survey categories retrieved.
+       A dict containing the survey categories.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_categories"
     result =  request_template(endpoint)
@@ -100,7 +100,7 @@ def get_survey_templates() -> Optional[dict]:
     This function constructs a request retrieve all available survey templates in the SurveyMonkey.
 
     Returns:
-        A dict containing the survey templates retrieved.
+        A dict containing the survey templates.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_templates"
     result =  request_template(endpoint)
@@ -228,7 +228,7 @@ def get_survey_response_details_by_id(survey_id: int, response_id: int) -> Optio
 
     Args:
         survey_id (int): The ID of the survey for which the response details are requested.
-        response_id (int): The ID of the specific response for which details are to be retrieved.
+        response_id (int): The ID of the specific response for which details are to be .
 
     Returns:
         A dict containing the detailed information of the specific survey response.
