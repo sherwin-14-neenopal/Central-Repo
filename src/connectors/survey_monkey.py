@@ -66,7 +66,6 @@ def get_surveys() -> Optional[dict]:
 
     Returns:
         A dict containing the survey data.
-
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
     result = request_template(endpoint)
