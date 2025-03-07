@@ -1,9 +1,9 @@
 # Setting Up the SurveyMonkey API
 
-### 📝 Introduction
+### Introduction 📝
 This guide provides step-by-step instructions for setting up and using the SurveyMonkey API to access survey data and manage surveys programmatically.
 
-### 📡 Prerequisites
+### Prerequisites 📡
 Before you can use the SurveyMonkey API, ensure you have the following:
 
 1. **SurveyMonkey Account**: You need to create a SurveyMonkey account if you don't already have one. Visit [SurveyMonkey](https://www.surveymonkey.com/) to sign up.
@@ -12,7 +12,7 @@ Before you can use the SurveyMonkey API, ensure you have the following:
 
 3. **Collector Links**: Set up collector links for your survey. Collectors are used to distribute your survey and gather responses. Make sure you have at least one active collector link associated with your survey.
 
-### 🔑 Generating an Access Token
+### Generating an Access Token 🔑
 
 To interact with the SurveyMonkey API, you need to generate an access token. Follow these steps:
 
@@ -29,7 +29,7 @@ To interact with the SurveyMonkey API, you need to generate an access token. Fol
    - Switch to the second section of your app named settings. You will find your **Access Token** here. This token is required for making authorized requests to the SurveyMonkey API.
    - Copy the access token and store it securely, as you will need it for your API calls.
 
-### 🔍 Choosing Scopes
+### Choosing Scopes 🔍
 
 When generating an access token, it's important to select the appropriate scopes that define the permissions your application will have when accessing the SurveyMonkey API. Follow these steps:
 
