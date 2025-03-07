@@ -22,6 +22,8 @@
       - Click on the option to create a new app. You can choose to create either a **Public** or **Private** app based on your use case. 
       - Public apps are suitable for applications that will be used by multiple users, while private apps are intended for personal use or limited distribution.
 
+> **Note**: You can omit the above step if you have access to an existing account.
+
    3. **Access Your Client ID and Secret**: 
       - After creating the app, go to the MyApp section and  navigate to the overview section of your app. Here, you will find your **Client ID** and **Client Secret**.
 
@@ -41,7 +43,7 @@
       - **`responses`**: Access to survey responses.
       - **`users`**: Access to user information.
 
-   3. **Understand Scope Implications**: Be mindful of the permissions you grant. Only select the scopes necessary for your application to function properly. This helps ensure the security of user data and complies with best practices.
+   3. **Understand Scope Implications**: Be selective about the permissions you grant. Only choose the scopes that are relevant and useful for your purpose. This practice not only enhances the security of user data but also aligns with best practices.
 
    4. **Save Your Changes**: After selecting the desired scopes, make sure to click on update scopes button. Your access token will now have the permissions associated with the scopes you selected.
 
