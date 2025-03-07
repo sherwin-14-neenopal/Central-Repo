@@ -425,4 +425,4 @@ def get_survey_languages(survey_id) -> pd.DataFrame:
 ## Response id - 114810765595
 ## Page id - 63655056
 ## Question id - 235189687
-print(get_contacts())
+print(get_survey_question_details(417488166, 63655056, 235189687).iloc[:,:5])
