@@ -441,7 +441,6 @@ def get_survey_languages(survey_id) -> pd.DataFrame:
     df = pd.json_normalize(result)
     return df
 
-
 ## ----------------------------------- Call the functions pulling data --------------------------------------------------------------------------------------------------------
 ## Survey id - 417488166
 ## Collector id  - 435022908
