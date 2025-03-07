@@ -178,7 +178,7 @@ def get_survey_page_questions(survey_id: int, page_id: int) -> Optional[dict]:
     result = request_template(endpoint)
     return result
 
-def get_survey_question_details(survey_id: int, page_id: int, question_id: int):
+def get_survey_question_details(survey_id: int, page_id: int, question_id: int) -> Optional[dict]:
     """Send a request to retrieve details of a specific survey question.
 
     This function constructs a request to retrieve detailed information about a 
