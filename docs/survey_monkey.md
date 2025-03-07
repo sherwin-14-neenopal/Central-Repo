@@ -8,9 +8,7 @@
 
    1. **SurveyMonkey Account**: You need to create a SurveyMonkey account if you don't already have one. Visit [SurveyMonkey](https://www.surveymonkey.com/) to sign up.
 
-   2. **Survey with Responses**: Create at least one survey that includes responses. This survey will be used to test the API functionality. For creating surveys refer to this [link](https://www.youtube.com/watch?v=l-Vfhevy7g0).
-
-   3. **Collector Links**: Set up collector links for your survey. Collectors are used to distribute your survey and gather responses. Make sure you have at least one active collector link associated with your survey.
+   2. **Survey with Responses**: Create at least one survey that includes responses. This survey will be used to test the API functionality. For creating surveys refer to this [link](https://www.youtube.com/watch?v=l-Vfhevy7g0). If you are given access to an existing account (with surveys and responses) then you may skip this step and move to the next section.
 
 ### 🔑 Generating an Access Token 
 
