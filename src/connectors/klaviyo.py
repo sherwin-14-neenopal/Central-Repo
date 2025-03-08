@@ -25,13 +25,13 @@ def get_profiles(
     This function constructs a request to retrieve all profiles available in the Klaviyo account. 
 
     Args:
-        additional_fields_profile (List[str]): A comma-separated list of additional fields to include in the profile data (e.g., 'predictive_analytics').
-        fields_profile (List[str]): A comma-separated list of fields to retrieve for each profile. (e.g., 'first_name', 'location')
+        additional_fields_profile (List[str]): A comma-separated list of additional fields to include in the profile data.
+        fields_profile (List[str]): A comma-separated list of fields to retrieve for each profile.
         filter (str): A filter to apply to the profiles being retrieved.
         page_cursor (str): A cursor for pagination to retrieve the next set of results.
         page_size (int): The number of profiles to retrieve per page.
         sort (str): The sorting order for the profiles (e.g., by creation date).
-
+    
     Returns:
         Optional[dict]: A dictionary containing the profile data, or an error message if an exception occurs.
     """

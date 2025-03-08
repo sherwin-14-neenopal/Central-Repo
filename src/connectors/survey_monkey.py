@@ -33,12 +33,10 @@ def request_template(endpoint: int) -> Optional[dict]:
         if response.status_code == 200:
             return response.json()
         else:
-            print(f"Error: {response.status_code} - {response.text}")
-            return None
+            return f"Error: {response.status_code} - {response.text}"
         
     except Exception as e:
-        print(f"An exception occurred: {e}")
-        return None
+        return f"An exception occurred: {e}"
 
 
 def get_user() -> Optional[dict]:
@@ -47,7 +45,7 @@ def get_user() -> Optional[dict]:
     This function constructs a request to retrieve the details of the authenticated user.
 
     Returns:
-        A dict containing the user data.
+         Optional[dict]: A dict containing the user data or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/users/me"
     result = request_template(endpoint)
@@ -59,7 +57,7 @@ def get_groups() -> Optional[dict]:
     This function constructs a request to retrieve all groups available in the SurveyMonkey account. 
 
     Returns:
-        A dict containing the group data.
+         Optional[dict]: A dict containing the group data or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/groups"
     result = request_template(endpoint)
@@ -72,7 +70,7 @@ def get_surveys() -> Optional[dict]:
     This function constructs a request to retrieve all surveys available in the SurveyMonkey account. 
 
     Returns:
-        A dict containing the survey data.
+          Optional[dict]: A dict containing the survey data or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys"
     result = request_template(endpoint)
@@ -89,7 +87,7 @@ def get_survey_info(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which information is requested.
 
     Returns:
-         A dict containing the survey information.
+        Optional[dict]: A dict containing the survey information or an error message.
     """
      endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}"
      result = request_template(endpoint)
@@ -105,7 +103,7 @@ def get_survey_details(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which to fetch details.
 
     Returns:
-        A dict containing detailed survey information.
+         Optional[dict]: A dict containing detailed survey information or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/details"
     result = request_template(endpoint)
@@ -117,7 +115,7 @@ def get_survey_category() -> Optional[dict]:
     This function constructs a request retrieve all available survey categories from SurveyMonkey.
 
     Returns:
-       A dict containing the survey categories.
+         Optional[dict]: A dict containing the survey categories or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_categories"
     result =  request_template(endpoint)
@@ -129,7 +127,7 @@ def get_survey_templates() -> Optional[dict]:
     This function constructs a request retrieve all available survey templates in the SurveyMonkey.
 
     Returns:
-        A dict containing the survey templates.
+          Optional[dict]: A dict containing the survey templates or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_templates"
     result =  request_template(endpoint)
@@ -145,7 +143,7 @@ def get_survey_pages(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which pages are requested.
 
     Returns:
-        A dict containing all the pages of a survey.
+          Optional[dict]: A dict containing all the pages of a survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages"
     result = request_template(endpoint)
@@ -162,7 +160,7 @@ def get_survey_page_details(survey_id: int, page_id: int) -> Optional[dict]:
         page_id (int): The ID of the page for which details are requested.
 
     Returns:
-        A dict containing detailed infomation of a page.
+          Optional[dict]: A dict containing detailed infomation of a page or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}"
     result = request_template(endpoint)
@@ -179,7 +177,7 @@ def get_survey_page_questions(survey_id: int, page_id: int) -> Optional[dict]:
         page_id (int): The ID of the page for which questions are requested.
         
     Returns:
-        A dict containing all questions from the specified page.
+          Optional[dict]: A dict containing all questions from the specified page or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions"
     result = request_template(endpoint)
@@ -198,7 +196,7 @@ def get_survey_question_details(survey_id: int, page_id: int, question_id: int) 
         question_id (int): The ID of the question for which details are requested.
 
     Returns:
-        A dict containing the details of the specified question or None.
+          Optional[dict]: A dict containing the details of the specified question or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}"
     result = request_template(endpoint)
@@ -210,7 +208,7 @@ def get_survey_folders() -> Optional[dict]:
     This function constructs a request retrieve all available survey folders from SurveyMonkey.
 
     Returns:
-        A dict containing the survey folders.
+          Optional[dict]: A dict containing the survey folders  or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/survey_folders"
     result = request_template(endpoint)
@@ -226,7 +224,7 @@ def get_survey_responses(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which responses are requested.
 
     Returns:
-        A dict containing the survey responses for a survey.
+          Optional[dict]: A dict containing the survey responses for a survey  or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses"
     result = request_template(endpoint)
@@ -243,7 +241,7 @@ def get_survey_response_by_id(survey_id: int, response_id: int) -> Optional[dict
         response_id (int): The ID of the specific response to retrieve.
 
     Returns:
-        A dict containing the specific survey response for a survey.
+          Optional[dict]: A dict containing the specific survey response for a survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}"
     result  = request_template(endpoint)
@@ -260,7 +258,7 @@ def get_survey_response_details_by_id(survey_id: int, response_id: int) -> Optio
         response_id (int): The ID of the specific response for which details are to be .
 
     Returns:
-        A dict containing the detailed information of the specific survey response.
+          Optional[dict]: A dict containing the detailed information of the specific survey response  or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/{response_id}/details"
     result = request_template(endpoint)
@@ -276,7 +274,7 @@ def get_survey_responses_bulk(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which bulk responses are requested.
 
     Returns:
-        A dict containing the bulk responses for the specified survey.
+          Optional[dict]: A dict containing the bulk responses for the specified survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/responses/bulk"
     result = request_template(endpoint)
@@ -292,7 +290,7 @@ def get_survey_rollups(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which rollup data is requested.
 
     Returns:
-        A dict containing the rollup data for the specified survey.
+          Optional[dict]: A dict containing the rollup data for the specified survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/rollups"
     result = request_template(endpoint)
@@ -310,7 +308,7 @@ def get_survey_question_rollups(survey_id: int, page_id: int, question_id: int) 
         question_id (int): The ID of the specific question for which rollup data is requested.
 
     Returns:
-        A dict containing the rollup data for the specified question in the survey.
+          Optional[dict]: A dict containing the rollup data for the specified question in the survey or an error message.
 
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/rollups"
@@ -328,7 +326,7 @@ def get_survey_trends(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which trend data is requested.
 
     Returns:
-        A dict containing the trend data for the specified survey.
+          Optional[dict]: A dict containing the trend data for the specified survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/trends"
     result = request_template(endpoint)
@@ -346,7 +344,7 @@ def get_survey_question_trends(survey_id: int, page_id: int, question_id: int) -
         question_id (int): The ID of the specific question for which trend data is requested.
 
     Returns:
-        A dict containing the trend data for the specified question in the survey.
+          Optional[dict]: A dict containing the trend data for the specified question in the survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/pages/{page_id}/questions/{question_id}/trends"
     result = request_template(endpoint)
@@ -362,7 +360,7 @@ def get_collectors(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which collectors are requested.
 
     Returns:
-        A dict containing the collectors for the specified survey.
+          Optional[dict]: A dict containing the collectors for the specified survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/collectors"
     result  = request_template(endpoint)
@@ -378,7 +376,7 @@ def get_collector_responses(collector_id: int) -> Optional[dict]:
         collector_id (int): The ID of the collector for which responses are requested.
 
     Returns:
-        A dict containing the responses for the specified collector.
+          Optional[dict]: A dict containing the responses for the specified collector or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses"
     result = request_template(endpoint)
@@ -395,7 +393,7 @@ def get_collector_response_by_id(collector_id: int, response_id: int) -> Optiona
         response_id (int): The ID of the specific response to retrieve.
 
     Returns:
-        A dict containing the specific response for the specified collector.
+         Optional[dict]:  A dict containing the specific response for the specified collector or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/{response_id}"
     result = request_template(endpoint)
@@ -411,7 +409,7 @@ def get_collector_responses_bulk(collector_id: int) -> Optional[dict]:
         collector_id (int): The ID of the collector for which bulk responses are requested.
 
     Returns:
-        A dict containing the bulk responses for the specified collector.
+          Optional[dict]: A dict containing the bulk responses for the specified collector or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/collectors/{collector_id}/responses/bulk"
     result = request_template(endpoint)
@@ -424,7 +422,7 @@ def get_contacts() -> Optional[dict]:
     account. 
 
     Returns:
-        A dict containing the list of contacts associated with the account.
+          Optional[dict]: A dict containing the list of contacts associated with the account or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/contacts"
     result = request_template(endpoint)
@@ -440,7 +438,7 @@ def get_survey_languages(survey_id: int) -> Optional[dict]:
         survey_id (int): The ID of the survey for which languages are requested.
 
     Returns:
-        A dict containing the languages available for the specified survey.
+          Optional[dict]: A dict containing the languages available for the specified survey or an error message.
     """
     endpoint = f"https://api.surveymonkey.com/v3/surveys/{survey_id}/languages"
     result = request_template(endpoint)
