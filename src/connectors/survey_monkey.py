@@ -28,11 +28,18 @@ def request_template(endpoint: int) -> Optional[dict]:
         'Accept': "application/json",
         'Authorization': f"Bearer {ACCESS_TOKEN}"
     }
-    response = httpx.get(endpoint, headers=headers)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print(f"Error: {response.status_code} - {response.text}")
+    try:
+        response = httpx.get(endpoint, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Error: {response.status_code} - {response.text}")
+            return None
+        
+    except Exception as e:
+        print(f"An exception occurred: {e}")
+        return None
+
 
 def get_user() -> Optional[dict]:
     """Send a request to retrieve the user information.
