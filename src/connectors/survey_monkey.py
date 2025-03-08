@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from typing import Optional
 
 ## Loading access token from config dir
-load_dotenv("./config/.env")
+load_dotenv("./src/config/.env")
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 
 def request_template(endpoint: int) -> Optional[dict]:
