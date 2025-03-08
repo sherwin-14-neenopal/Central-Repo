@@ -1,9 +1,8 @@
 import os
 
-
-from dotenv import load_dotenv
-from typing import Optional
 from typing import Any
+from typing import Optional
+from dotenv import load_dotenv
 from klaviyo_api import KlaviyoAPI
 
 # Loading api token from config dir
