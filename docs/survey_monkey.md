@@ -45,7 +45,5 @@
 
    3. **Understand Scope Implications**: Be selective about the permissions you grant. Only choose the scopes that are relevant and useful for your purpose. This practice not only enhances the security of user data but also aligns with best practices.
 
-   4. **Save Your Changes**: After selecting the desired scopes, make sure to click on update scopes button. Your access token will now have the permissions associated with the scopes you selected.
-
-**You can now make requests to the various endpoints and retrieve data related to surveys, responses, and collectors etc.**
+   4. **Save Your Changes**: After selecting the desired scopes, make sure to click on update scopes button. Your access token will now have the permissions associated with the scopes you selected. You can now make requests to the various endpoints and retrieve data related to surveys, responses, and collectors etc.
 
