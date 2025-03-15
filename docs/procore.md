@@ -14,7 +14,12 @@
 
    To interact with the Procore API, you need to generate an access token. Follow these steps:
 
-   1. **Log In to the Procore Developer Portal**: Go to the [Procore Developer Portal](https://developer.surveymonkey.com/) and log in with your existing Procore account credentials.
+   1. **Add a Data Connector Component**: 
+        * Click the down arrow to expand the Data Connector Components section.
+        * Select Add Components.
+        * On the right-hand side, select User Level Authentication.
+        * Click Save Component at the bottom-right of the side panel.
+        * Click Create Version in the near the top right then follow the prompts.
 
    2. **Create a New App**: 
       - Click on the option to create a new app. You can choose to create either a **Public** or **Private** app based on your use case. 
