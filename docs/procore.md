@@ -28,8 +28,6 @@
         * In this field, paste the following text: urn:ietf:wg:oauth:2.0:oob
         * Click Update in the bottom right corner
 
-> **Note**: You can omit the above step if you have access to an existing account.
-
    3. **Install Your App in the Sandbox**: Every created app comes with a Developer Sandbox intended to be your primary testing environment. To access the Developer Sandbox, check your email inbox for a message prompting you to create a password. Additionally, you can find the URL to your Sandbox by navigating to the Sandbox OAuth Credentials section of your app.
 
         * Log into your Developer Sandbox and select the corresponding Company
