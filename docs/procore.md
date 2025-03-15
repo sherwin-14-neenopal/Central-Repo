@@ -22,6 +22,7 @@
         * Click Create Version in the near the top right then follow the prompts.
 
    2. **Update Your App’s URIs**: It's essential to note that this specific redirect URI is meant for testing purposes only.
+
         * In your app, select OAuth Credentials on the left-hand side.
         * Under Sandbox OAuth Credentials, click into the Redirect URI field.
         * In this field, paste the following text: urn:ietf:wg:oauth:2.0:oob
@@ -29,8 +30,16 @@
 
 > **Note**: You can omit the above step if you have access to an existing account.
 
-   3. **Access Your Client ID and Secret**: 
-      - After creating the app, go to the MyApp section and  navigate to the overview section of your app. Here, you will find your **Client ID** and **Client Secret**.
+   3. **Install Your App in the Sandbox**: Every created app comes with a Developer Sandbox intended to be your primary testing environment. To access the Developer Sandbox, check your email inbox for a message prompting you to create a password. Additionally, you can find the URL to your Sandbox by navigating to the Sandbox OAuth Credentials section of your app.
+
+        * Log into your Developer Sandbox and select the corresponding Company
+        * Select Company Tools at the top, then click on the Admin tool.
+        * On the right-hand side, click App Management.
+        * Click Install App and choose Install Custom App.
+        * Paste the previously copied App Version Key.
+        * Click Install.
+        * Click Install again to confirm the installation.
+
 
    4. **Obtain Your Access Token**: 
       - Switch to the second section of your app named settings. You will find your **Access Token** here. This token is required for making authorized requests to the Procore API.
