@@ -39,9 +39,30 @@
         * Click Install again to confirm the installation.
 
 
-   4. **Obtain Your Access Token**: 
-      - Switch to the second section of your app named settings. You will find your **Access Token** here. This token is required for making authorized requests to the Procore API.
-      - Copy the access token and store it securely, as you will need it for your API calls.
+   4. **Generate a Code for User Authentication**: Now that your app is installed, we need to generate a code, which will be exchanged for an access token.
+
+        * In the following URL, replace the CLIENT_ID variable with that of your Sandbox Credentials, which can be found in your app through the Developer Portal: https://login-sandbox.procore.com/oauth/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+        * Open the edited URL in your web browser.
+        * This may prompt you to log in, if you are already not signed into Procore.
+        * Additionally, you may have to select Approve if the app is accessing your information for the first time.
+        * Once successfully done, copy the code value as it’s required for the next step.
+
+  5. **Exchange the Code for an Access Token**: To retrieve an access token, you’ll exchange the code for a token using Postman or curl:
+
+        * In Postman, create a POST request to: https://login-sandbox.procore.com/oauth/token/.
+        * Add the following to the Body as x-www-form-urlencoded:
+        * grant_type: authorization_code
+        * code: Your authorization code (from Step 5).
+        * client_id: Your app’s Client ID.
+        * client_secret: Your app’s Client Secret.
+        * redirect_uri: urn:ietf:wg:oauth:2.0:oob.
+        * Click Send.
+        * If successful, you’ll receive a response containing your access token similar to the example below:
+
+        ```
+        { "access_token": "####", "token_type": "bearer","expires_in": 5400, "refresh_token": "####","created_at": 1508271900} 
+        ```
+
 
 
 
