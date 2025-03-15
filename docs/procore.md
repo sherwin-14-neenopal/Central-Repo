@@ -21,9 +21,11 @@
         * Click Save Component at the bottom-right of the side panel.
         * Click Create Version in the near the top right then follow the prompts.
 
-   2. **Create a New App**: 
-      - Click on the option to create a new app. You can choose to create either a **Public** or **Private** app based on your use case. 
-      - Public apps are suitable for applications that will be used by multiple users, while private apps are intended for personal use or limited distribution.
+   2. **Update Your App’s URIs**: It's essential to note that this specific redirect URI is meant for testing purposes only.
+        * In your app, select OAuth Credentials on the left-hand side.
+        * Under Sandbox OAuth Credentials, click into the Redirect URI field.
+        * In this field, paste the following text: urn:ietf:wg:oauth:2.0:oob
+        * Click Update in the bottom right corner
 
 > **Note**: You can omit the above step if you have access to an existing account.
 
