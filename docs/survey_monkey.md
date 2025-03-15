@@ -10,7 +10,7 @@
 
    2. **Survey with Responses**: Create at least one survey that includes responses. This survey will be used to test the API functionality. For creating surveys refer to this [link](https://www.youtube.com/watch?v=l-Vfhevy7g0). 
 
-> **Note**: If you are given access to an existing account then you can skip the above steps and move to the next section.
+> **Note**: If you are given access to an existing account then you can skip the above step and move to the next section.
 
 ### 🔑 Generating an Access Token 
 

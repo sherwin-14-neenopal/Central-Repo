@@ -4,19 +4,19 @@
    This guide provides step-by-step instructions for setting up and using the Procore API to access construction management data and manage projects programmatically.
 
 ### 📡 Prerequisites 
-   Before you can use the SurveyMonkey API, ensure you have the following:
+   Before you can use the Procore API, ensure you have the following:
 
-   1. **SurveyMonkey Account**: You need to create a SurveyMonkey account if you don't already have one. Visit [SurveyMonkey](https://www.surveymonkey.com/) to sign up.
+   1. **Procore Account**: You need to create a Procore developer account if you don't already have one. Visit [Procore](https://developers.procore.com/) to sign up.
 
    2. **Survey with Responses**: Create at least one survey that includes responses. This survey will be used to test the API functionality. For creating surveys refer to this [link](https://www.youtube.com/watch?v=l-Vfhevy7g0). 
 
-> **Note**: If you are given access to an existing account then you can skip the above steps and move to the next section.
+> **Note**: If you are given access to an existing account then you can skip the above step and move to the next section.
 
 ### 🔑 Generating an Access Token 
 
-   To interact with the SurveyMonkey API, you need to generate an access token. Follow these steps:
+   To interact with the Procore API, you need to generate an access token. Follow these steps:
 
-   1. **Log In to the SurveyMonkey Developer Portal**: Go to the [SurveyMonkey Developer Portal](https://developer.surveymonkey.com/) and log in with your existing SurveyMonkey account credentials.
+   1. **Log In to the Procore Developer Portal**: Go to the [Procore Developer Portal](https://developer.surveymonkey.com/) and log in with your existing Procore account credentials.
 
    2. **Create a New App**: 
       - Click on the option to create a new app. You can choose to create either a **Public** or **Private** app based on your use case. 
@@ -28,12 +28,12 @@
       - After creating the app, go to the MyApp section and  navigate to the overview section of your app. Here, you will find your **Client ID** and **Client Secret**.
 
    4. **Obtain Your Access Token**: 
-      - Switch to the second section of your app named settings. You will find your **Access Token** here. This token is required for making authorized requests to the SurveyMonkey API.
+      - Switch to the second section of your app named settings. You will find your **Access Token** here. This token is required for making authorized requests to the Procore API.
       - Copy the access token and store it securely, as you will need it for your API calls.
 
 ### 🔍 Choosing Scopes
 
-   When generating an access token, it's important to select the appropriate scopes that define the permissions your application will have when accessing the SurveyMonkey API. Follow these steps:
+   When generating an access token, it's important to select the appropriate scopes that define the permissions your application will have when accessing the Procore API. Follow these steps:
 
    1. **Navigate to the Scopes Section**: In the app settings, look for the section where you can define the scopes for your access token.
 
