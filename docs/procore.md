@@ -49,17 +49,19 @@
 
   5. **Exchange the Code for an Access Token**: To retrieve an access token, you’ll exchange the code for a token using Postman or curl:
 
-        * In Postman, create a POST request to: https://login-sandbox.procore.com/oauth/token/.
-        * Add the following to the Body as x-www-form-urlencoded:
+        * Create a POST request to: https://login-sandbox.procore.com/oauth/token/.
+
+        Add the following to the Body as x-www-form-urlencoded:
         * grant_type: authorization_code
         * code: Your authorization code (from Step 5).
         * client_id: Your app’s Client ID.
         * client_secret: Your app’s Client Secret.
         * redirect_uri: urn:ietf:wg:oauth:2.0:oob.
         * Click Send.
-        * If successful, you’ll receive a response containing your access token similar to the example below:
 
-        ```
+        If successful, you’ll receive a response containing your access token similar to the example below:
+
+        ```Example Response
         { "access_token": "####", "token_type": "bearer","expires_in": 5400, "refresh_token": "####","created_at": 1508271900} 
         ```
 
