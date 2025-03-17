@@ -47,7 +47,7 @@
         * Additionally, you may have to select Approve if the app is accessing your information for the first time.
         * Once successfully done, copy the code value as it’s required for the next step.
 
-  5. **Exchange the Code for an Access Token**: To retrieve an access token, you’ll exchange the code for a token using Postman or curl:
+   5. **Exchange the Code for an Access Token**: To retrieve an access token, you’ll exchange the code for a token using Postman or curl:
 
         * Create a POST request to: https://login-sandbox.procore.com/oauth/token/.
 
@@ -64,6 +64,9 @@
         ```Example Response
         { "access_token": "####", "token_type": "bearer","expires_in": 5400, "refresh_token": "####","created_at": 1508271900} 
         ```
+
+**You can now use this access token for querying data from the Procore API.**
+
 
 
 
