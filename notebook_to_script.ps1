@@ -2,6 +2,8 @@ param (
     [string]$notebookPath  
 )
 
+Set-PSDebug -Strict
+
 $outputDirectory = Join-Path -Path (Split-Path -Path $notebookPath -Parent) -ChildPath "python_scripts"
 
 if (-Not (Test-Path -Path $outputDirectory)) {
@@ -11,10 +13,10 @@ if (-Not (Test-Path -Path $outputDirectory)) {
 $outputFile = Join-Path -Path $outputDirectory -ChildPath (Get-Item $notebookPath).Basename 
 
 try {
-    $conversionResult = jupyter nbconvert --to script $notebookPath --output $outputFile 2>&1
+    jupyter nbconvert --to script $notebookPath --output $outputFile 2>NUL
 
     if (Test-Path -Path ($outputFile + ".py")) {
-        Write-Host "+--- basic
+        Write-Host "
         d8888b.  .d88b.  d8b   db d88888b 
         88  `8D .8P  Y8. 888o  88 88'     
         88   88 88    88 88V8o 88 88ooooo 
