@@ -8,6 +8,9 @@
 
    1. **Dwolla Developer Account**: You need to create a Dwolla developer account if you don't already have one. Visit [Dwolla](https://developers.dwolla.com/docs) to sign up.
 
-   2. **App**: Log in to the Dwolla Developer Portal. Navigate to My Apps and click Create New App. Provide a meaningful app name base on your usecase. Click Create App to proceed.
-
 ### 🔑 Generating an Access Token 
+
+   1. **Go to the Dwolla Dashboard**: Log into your developer account, and you will be directed to the Dwolla dashboard. This is the main interface where you can manage your account and access various features.
+
+   
+   2. **Access Applications**: From the left pane of dashboard, choose applications. This would give you your `CLIENT_ID` AND `CLIENT_SECRET`. Then click on Create Token option to get your `ACCESS TOKEN`.
