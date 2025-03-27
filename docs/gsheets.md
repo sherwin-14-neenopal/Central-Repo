@@ -9,7 +9,7 @@ Before you can use the Sheets API, ensure you have the following:
 
 1. **Create a Project in Google Developer Console**: You need to create a project in google developer console, if you don't already have one. You can follow this [tutorial](https://www.youtube.com/watch?v=7n9DkOzjwlA) to create a project.
 
-2. **Enable Google Sheets and Drive API's**: To enable the required APIs, navigate to the "APIs & Services" menu and select "Library." Use the search bar to locate the Google Sheets API, then select it and click the "Enable" button. Once done, repeat the same process for the Google Drive API to ensure both are activated for your project.
+2. **Enable Google Sheets and Drive APIs**: To enable the required APIs, navigate to the "APIs & Services" menu and select "Library." Use the search bar to locate the Google Sheets API, then select it and click the "Enable" button. Once done, repeat the same process for the Google Drive API to ensure both are activated for your project.
 
 
 ### 🔐 Setting Up OAuth
