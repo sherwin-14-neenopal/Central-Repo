@@ -14,7 +14,7 @@ Before you can use the Sheets API, ensure you have the following:
 
 ### 🚀 OAuth Flow: Client ID and Client Secret Setup
 
-To interact with the Sheets API, you need to generate an API token. Follow these steps:
+To interact with the Sheets API, you need to generate a `credentials.json` file. Follow these steps:
 
 1. **Set Up The App**: To set up the application, click on the option `OAuth consent screen` in the "APIs & Services" section.
 After that choose a user type and fill relevant information about the app.
