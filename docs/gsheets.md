@@ -11,7 +11,6 @@ Before you can use the Sheets API, ensure you have the following:
 
 2. **Enable Google Sheets and Drive APIs**: To enable the required APIs, navigate to the "APIs & Services" menu and select "Library." Use the search bar to locate the Google Sheets API, then select it and click the "Enable" button. Once done, repeat the same process for the Google Drive API to ensure both are activated for your project.
 
-
 ### 🔐 Setting Up OAuth
 
 To interact with the Sheets API, you need to generate a `credentials.json` file. Follow these steps:
