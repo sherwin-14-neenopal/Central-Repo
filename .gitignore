@@ -1,4 +1,3 @@
 src/config/.env
-src/config/credentials.json
 src/config/client_secrets_youtube.json
 src/config/client_secrets.json
